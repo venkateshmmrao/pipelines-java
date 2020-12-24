@@ -19,7 +19,7 @@ steps:
   displayName: Configure git
 - bash: git checkout $(Build.SourceBranchName)
   displayName: Checkout $(Build.SourceBranchName)
-- bash: git reset --hard remotes/origin/${Build.SourceBranchName}
+- bash: git reset --hard remotes/origin/$(Build.SourceBranchName)
   displayName: git reset
   
 - task: Maven@3
