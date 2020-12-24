@@ -34,6 +34,8 @@ steps:
 - script: |
     version=$(mvn -Dexec.executable='echo' -Dexec.args='${project.version}' --non-recursive exec:exec -q)
     echo "version from maven $version"
+    release_version=$(echo $version | cut -d'-' -f 1)
+    echo "release_version is $release_version" 
   displayName: 'Update Version'
   
 - task: Maven@3
