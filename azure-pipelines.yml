@@ -21,6 +21,10 @@ steps:
   displayName: Checkout $(Build.SourceBranchName)
 - bash: git reset --hard remotes/origin/$(Build.SourceBranchName)
   displayName: git reset
+- script: az --version
+  displayName: 'Show Azure CLI version'
+- script: az extension add -n azure-devops
+  displayName: 'Install Azure Devops Extension'
   
 - task: Maven@3
   inputs:
